@@ -12,9 +12,25 @@ import seedRoutes from './src/routes/seed.routes.js'
 
 const app = express()
 
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'https://terratransport-sa.com',
+  'https://www.terratransport-sa.com',
+]
+  .filter(Boolean)
+  .map((o) => o.replace(/\/$/, '')) // enlève un éventuel "/" final qui casserait la comparaison
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || '*',
+    origin: (origin, callback) => {
+      // Pas d'origine = outil comme curl/Hoppscotch ou requête same-origin : on laisse passer.
+      if (!origin) return callback(null, true)
+      const normalized = origin.replace(/\/$/, '')
+      if (allowedOrigins.includes(normalized)) return callback(null, true)
+      console.warn('CORS refusé pour l\'origine :', origin)
+      return callback(new Error('Non autorisé par CORS'))
+    },
+    credentials: true,
   })
 )
 app.use(express.json())
