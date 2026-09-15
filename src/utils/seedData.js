@@ -166,8 +166,18 @@ export function buildSeedServices() {
   ]
 }
 
+export function buildSeedPartners() {
+  return [
+    { name: 'Sinotruk', order: 1 },
+    { name: 'Shacman', order: 2 },
+    { name: 'Yutong', order: 3 },
+    { name: 'HOWO', order: 4 },
+  ]
+}
+
 export function buildSeedContent() {
   return [
+    // --- HOME ---
     {
       key: 'home.hero.title',
       page: 'home',
@@ -208,13 +218,147 @@ export function buildSeedContent() {
         "Élargir notre réseau auprès des sociétés minières du continent, diversifier notre flotte de camions et d'équipements dédiés à l'exploitation minière, et renforcer nos capacités de financement et d'acheminement pour accompagner nos clients, site après site, pays après pays.",
     },
     {
+      key: 'home.route.depart',
+      page: 'home',
+      label: 'Parcours — Départ (Votre demande)',
+      type: 'richtext',
+      value:
+        "Vous nous décrivez votre besoin — type de camion ou d'engin, tonnage, site minier ou chantier de destination, contraintes de terrain. Que vous soyez opérateur minier, entreprise de BTP ou transporteur, nous prenons le temps de comprendre votre exploitation avant de vous répondre.",
+    },
+    {
+      key: 'home.route.transit',
+      page: 'home',
+      label: 'Parcours — Transit (Notre expertise)',
+      type: 'richtext',
+      value:
+        "Nous sélectionnons le véhicule ou l'équipement le plus adapté à votre exploitation réelle, puis nous structurons le financement, les formalités et l'acheminement jusqu'à votre site.",
+    },
+    {
+      key: 'home.route.arrivee',
+      page: 'home',
+      label: 'Parcours — Arrivée (Livraison)',
+      type: 'richtext',
+      value:
+        "Le suivi ne s'arrête pas à la remise des clés. Nous restons disponibles après la livraison pour répondre à toute question d'exploitation, où que vous soyez sur le continent.",
+    },
+
+    // --- ABOUT ---
+    {
+      key: 'about.hero.title',
+      page: 'about',
+      label: 'Titre principal',
+      type: 'text',
+      value: "Terratransport — une industrie mobile pour l'exploitation minière en Afrique.",
+    },
+    {
       key: 'about.mission.paragraph1',
       page: 'about',
-      label: 'À propos — Mission, paragraphe 1',
+      label: 'Mission — paragraphe 1',
       type: 'richtext',
       value:
         "Terratransport & Industrie Mobile met une industrie mobile fiable — camions, engins et équipements — au service de l'exploitation minière en Afrique. Nous accompagnons les opérateurs miniers, ainsi que les entreprises de BTP et de transport, dans l'acquisition et l'exploitation de leur matériel, et dans la mise en place de solutions logistiques adaptées au terrain africain.",
     },
+    {
+      key: 'about.mission.paragraph2',
+      page: 'about',
+      label: 'Mission — paragraphe 2',
+      type: 'richtext',
+      value:
+        "Notre ambition est simple : être reconnus partout où l'exploitation minière a besoin d'un partenaire fiable pour son industrie mobile — pas seulement dans un pays, mais à l'échelle du continent.",
+    },
+    {
+      key: 'about.energie.title',
+      page: 'about',
+      label: "L'énergie en mouvement — titre",
+      type: 'text',
+      value: "L'énergie en mouvement, au Sénégal et dans la sous-région.",
+    },
+    {
+      key: 'about.energie.paragraph1',
+      page: 'about',
+      label: "L'énergie en mouvement — paragraphe 1",
+      type: 'richtext',
+      value:
+        "Terratransport est également spécialisée dans le transport routier et la logistique des produits pétroliers et hydrocarbures, avec une ambition claire : devenir un partenaire de référence pour l'approvisionnement en carburants au Sénégal et la desserte des marchés de la sous-région ouest-africaine.",
+    },
+    {
+      key: 'about.energie.paragraph2',
+      page: 'about',
+      label: "L'énergie en mouvement — paragraphe 2",
+      type: 'richtext',
+      value:
+        "Grâce à une approche fondée sur la sécurité, la fiabilité, la ponctualité et la performance logistique, nous accompagnons les distributeurs pétroliers, sociétés minières, industriels, entreprises de BTP, opérateurs énergétiques, stations-service et grands consommateurs dans leurs besoins d'acheminement de carburants.",
+    },
+    {
+      key: 'about.couverture.paragraph1',
+      page: 'about',
+      label: 'Couverture régionale — paragraphe',
+      type: 'richtext',
+      value:
+        "Notre activité couvre le transport et l'acheminement de produits pétroliers depuis les points de chargement, dépôts et plateformes logistiques vers les sites de consommation et de distribution. Au Sénégal, Terratransport ambitionne de développer une couverture nationale permettant de desservir efficacement les principaux pôles économiques, industriels, miniers et énergétiques. Notre stratégie s'étend également aux corridors internationaux reliant le Sénégal aux principaux marchés de la sous-région.",
+    },
+    {
+      key: 'about.couverture.corridor',
+      page: 'about',
+      label: 'Couverture régionale — note corridor',
+      type: 'richtext',
+      value:
+        "Le corridor Dakar–Mali constitue un axe stratégique pour les échanges régionaux et l'approvisionnement du Mali, pays enclavé.",
+    },
+    {
+      key: 'about.engagement.title',
+      page: 'about',
+      label: 'Engagement — titre',
+      type: 'text',
+      value: 'Sécurité, traçabilité et performance.',
+    },
+    {
+      key: 'about.engagement.paragraph1',
+      page: 'about',
+      label: 'Engagement — paragraphe 1',
+      type: 'richtext',
+      value:
+        "Le transport d'hydrocarbures exige un niveau élevé de maîtrise opérationnelle. Chez Terratransport, nous plaçons la sécurité des personnes, des produits, des véhicules et des opérations — ainsi que la protection de l'environnement — au cœur de notre organisation.",
+    },
+    {
+      key: 'about.engagement.paragraph2',
+      page: 'about',
+      label: 'Engagement — paragraphe 2',
+      type: 'richtext',
+      value:
+        "Au Sénégal, les dispositions applicables au transport des produits pétroliers prévoient notamment des exigences de licence et de traçabilité des livraisons. Terratransport inscrit donc son développement dans une démarche de conformité avec les exigences réglementaires et les standards de sécurité applicables.",
+    },
+    {
+      key: 'about.vision.paragraph1',
+      page: 'about',
+      label: 'Vision — paragraphe',
+      type: 'richtext',
+      value:
+        "Notre ambition est de construire progressivement un réseau logistique reliant le Sénégal aux principaux marchés de la sous-région, en nous appuyant sur une flotte performante, des équipes qualifiées, des partenaires fiables et une organisation orientée vers la sécurité et la satisfaction client.",
+    },
+    {
+      key: 'about.valeur.reactivite',
+      page: 'about',
+      label: 'Valeur — Réactivité',
+      type: 'text',
+      value: 'Une demande, une réponse rapide — sans intermédiaire superflu.',
+    },
+    {
+      key: 'about.valeur.reseau',
+      page: 'about',
+      label: 'Valeur — Réseau',
+      type: 'text',
+      value: 'Un ancrage panafricain, pensé pour accompagner nos clients où que leur activité les mène sur le continent.',
+    },
+    {
+      key: 'about.valeur.tracabilite',
+      page: 'about',
+      label: 'Valeur — Traçabilité',
+      type: 'text',
+      value: "Un suivi clair de votre commande, du premier échange à la livraison.",
+    },
+
+    // --- HYDROCARBURES ---
     {
       key: 'hydrocarbures.hero.title',
       page: 'hydrocarbures',
@@ -225,10 +369,92 @@ export function buildSeedContent() {
     {
       key: 'hydrocarbures.intro.paragraph1',
       page: 'hydrocarbures',
-      label: 'Introduction, paragraphe 1',
+      label: 'Introduction — paragraphe 1',
       type: 'richtext',
       value:
         "Terratransport est une entreprise spécialisée dans le transport routier et la logistique des produits pétroliers et hydrocarbures, avec une ambition claire : devenir un partenaire de référence pour l'approvisionnement en carburants au Sénégal et la desserte des marchés de la sous-région ouest-africaine.",
     },
+    {
+      key: 'hydrocarbures.intro.paragraph2',
+      page: 'hydrocarbures',
+      label: 'Introduction — paragraphe 2',
+      type: 'richtext',
+      value:
+        "Grâce à une approche fondée sur la sécurité, la fiabilité, la ponctualité et la performance logistique, nous accompagnons les distributeurs pétroliers, sociétés minières, industriels, entreprises de BTP, opérateurs énergétiques, stations-service et grands consommateurs dans leurs besoins d'acheminement de carburants.",
+    },
+    {
+      key: 'hydrocarbures.couverture.title',
+      page: 'hydrocarbures',
+      label: 'Couverture régionale — titre',
+      type: 'text',
+      value: "Une logistique pensée pour les enjeux énergétiques de l'Afrique de l'Ouest.",
+    },
+    {
+      key: 'hydrocarbures.couverture.paragraph1',
+      page: 'hydrocarbures',
+      label: 'Couverture régionale — paragraphe 1',
+      type: 'richtext',
+      value:
+        "Notre activité couvre le transport et l'acheminement de produits pétroliers depuis les points de chargement, dépôts et plateformes logistiques vers les sites de consommation et de distribution. Au Sénégal, Terratransport ambitionne de développer une couverture nationale permettant de desservir efficacement les principaux pôles économiques, industriels, miniers et énergétiques.",
+    },
+    {
+      key: 'hydrocarbures.solutions.carburants',
+      page: 'hydrocarbures',
+      label: 'Solution — Transport de carburants',
+      type: 'richtext',
+      value:
+        "Des solutions de transport par camions-citernes hydrocarbures, adaptées aux différents volumes et aux contraintes opérationnelles des clients.",
+    },
+    {
+      key: 'hydrocarbures.solutions.minier',
+      page: 'hydrocarbures',
+      label: 'Solution — Logistique minière',
+      type: 'richtext',
+      value:
+        "Des solutions dédiées aux mines, carrières et grands projets industriels, avec des plans de transport adaptés aux contraintes des sites isolés, aux longues distances et aux besoins réguliers en carburant.",
+    },
+    {
+      key: 'hydrocarbures.solutions.transfrontalier',
+      page: 'hydrocarbures',
+      label: 'Solution — Transport transfrontalier',
+      type: 'richtext',
+      value:
+        "Renforcer les corridors logistiques entre le Sénégal et les pays voisins pour faciliter la circulation des produits énergétiques dans la sous-région.",
+    },
+    {
+      key: 'hydrocarbures.engagement.paragraph1',
+      page: 'hydrocarbures',
+      label: 'Engagement sécurité — paragraphe',
+      type: 'richtext',
+      value:
+        "Le transport d'hydrocarbures exige un niveau élevé de maîtrise opérationnelle. Chez Terratransport, nous plaçons la sécurité au cœur de notre organisation.",
+    },
+    {
+      key: 'hydrocarbures.vision.paragraph1',
+      page: 'hydrocarbures',
+      label: 'Vision — paragraphe',
+      type: 'richtext',
+      value:
+        "Notre ambition est de construire progressivement un réseau logistique reliant le Sénégal aux principaux marchés de la sous-région, en nous appuyant sur une flotte performante, des équipes qualifiées, des partenaires fiables et une organisation orientée vers la sécurité et la satisfaction client.",
+    },
+
+    // --- PARTNERS ---
+    {
+      key: 'partners.intro.paragraph1',
+      page: 'partners',
+      label: 'Introduction',
+      type: 'richtext',
+      value:
+        "Terratransport travaille avec des constructeurs et partenaires financiers sélectionnés pour la fiabilité de leurs véhicules et la qualité de leur accompagnement.",
+    },
+    {
+      key: 'partners.devenir.paragraph1',
+      page: 'partners',
+      label: 'Devenir partenaire',
+      type: 'richtext',
+      value:
+        "Vous représentez une flotte ou un réseau de distribution ? Parlons d'une collaboration adaptée à votre marché.",
+    },
   ]
 }
+
