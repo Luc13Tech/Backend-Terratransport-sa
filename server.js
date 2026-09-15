@@ -9,6 +9,7 @@ import serviceRoutes from './src/routes/service.routes.js'
 import contentRoutes from './src/routes/content.routes.js'
 import uploadRoutes from './src/routes/upload.routes.js'
 import seedRoutes from './src/routes/seed.routes.js'
+import partnerRoutes from './src/routes/partner.routes.js'
 
 const app = express()
 
@@ -48,6 +49,7 @@ app.use('/api/services', serviceRoutes)
 app.use('/api/content', contentRoutes)
 app.use('/api/upload', uploadRoutes)
 app.use('/api/seed', seedRoutes)
+app.use('/api/partners', partnerRoutes)
 
 // Gestionnaire d'erreurs générique (attrape aussi les erreurs multer, ex: fichier trop lourd)
 app.use((err, req, res, next) => {
