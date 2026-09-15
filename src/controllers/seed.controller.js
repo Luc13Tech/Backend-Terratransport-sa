@@ -2,7 +2,8 @@ import Vehicle from '../models/Vehicle.js'
 import Service from '../models/Service.js'
 import Content from '../models/Content.js'
 import Admin from '../models/Admin.js'
-import { buildSeedVehicles, buildSeedServices, buildSeedContent } from '../utils/seedData.js'
+import Partner from '../models/Partner.js'
+import { buildSeedVehicles, buildSeedServices, buildSeedContent, buildSeedPartners } from '../utils/seedData.js'
 
 function checkSeedSecret(req, res) {
   const provided = req.query.secret || req.body.secret
@@ -66,4 +67,31 @@ export async function seedAdmin(req, res) {
   const admin = await Admin.create({ name, email: email.toLowerCase().trim(), passwordHash })
 
   res.status(201).json({ success: true, admin: { id: admin._id, email: admin.email, name: admin.name } })
+}
+
+// POST /api/seed/content-partners?secret=... — met à jour/complète les blocs
+// de contenu (upsert, sans risque à relancer) et crée les partenaires s'il
+// n'y en a pas encore. Séparé de seedData() car vehicles/services existent
+// déjà et bloqueraient sinon avec une erreur 409.
+export async function seedContentAndPartners(req, res) {
+  if (!checkSeedSecret(req, res)) return
+
+  const contentItems = buildSeedContent()
+  for (const item of contentItems) {
+    await Content.findOneAndUpdate({ key: item.key }, item, { upsert: true })
+  }
+
+  const existingPartners = await Partner.countDocuments()
+  let partnersCreated = 0
+  if (existingPartners === 0) {
+    const partners = await Partner.insertMany(buildSeedPartners())
+    partnersCreated = partners.length
+  }
+
+  res.json({
+    success: true,
+    content: contentItems.length,
+    partnersCreated,
+    partnersSkipped: existingPartners > 0,
+  })
 }
